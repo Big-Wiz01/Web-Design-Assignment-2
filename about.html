@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Elite Football Agency Sierra Leone</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 30px;
+            background-color: rgb(19, 173, 239);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-section img {
+            width: 55px;
+            height: 55px;
+            margin-right: 10px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+        
+        .logo-section h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+        
+        .logo-section p {
+            margin: 0;
+            font-size: 12px;
+            color: #333;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            padding: 10px 16px;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: yellow;
+        }
+        
+        .active {
+            background-color: #bac61a;
+            color: white !important;
+        }
+        /* SECTION 1 — BANNER */
+        
+        #banner {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #banner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .banner-overlay h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .banner-overlay p {
+            font-size: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        /* SECTION 2 — ABOUT */
+        
+        #about {
+            text-align: center;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        #about h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        
+        #about-content {
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        #about-content>p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        #hiddenText {
+            display: none;
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .learnMoreBtn {
+            background: rgb(3, 212, 55);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .learnMoreBtn:hover {
+            background: rgb(2, 180, 45);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        /* SECTION 3 — HISTORY */
+        
+        #history {
+            display: flex;
+            align-items: center;
+            padding: 60px 50px;
+            background: white;
+            gap: 30px;
+        }
+        
+        #history img {
+            width: 320px;
+            height: 320px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        #history img:hover {
+            transform: scale(1.05);
+        }
+        
+        .history-content {
+            flex: 1;
+        }
+        
+        .history-content h2 {
+            font-size: 32px;
+            color: rgb(19, 173, 239);
+            margin-bottom: 20px;
+        }
+        
+        #history p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        /* SECTION 4 — VISION + MISSION */
+        
+        #visionMission {
+            display: flex;
+            padding: 60px 50px;
+            justify-content: space-around;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            gap: 40px;
+        }
+        
+        #visionMission>div {
+            width: 45%;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        #visionMission>div:hover {
+            transform: translateY(-10px);
+        }
+        
+        #visionMission h3 {
+            font-size: 28px;
+            color: rgb(19, 173, 239);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        #visionMission p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            text-align: center;
+        }
+        /* SECTION 5 — TEAM */
+        
+        #team-section-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            color: rgb(19, 173, 239);
+            padding: 50px 50px 20px 50px;
+            background: #f9f9f9;
+        }
+        
+        #team-wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 50px 60px 50px;
+            background: #f9f9f9;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        
+        #team {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .member {
+            display: flex;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .member:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .member img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 25px;
+        }
+        
+        .memberText {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .memberText b {
+            font-size: 22px;
+            color: rgb(19, 173, 239);
+            margin-bottom: 5px;
+        }
+        
+        .memberText .role {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .memberText .details {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        #agencyLogo {
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+            opacity: 0.9;
+            border-radius: 12px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        /* STATISTICS SECTION */
+        
+        #statistics {
+            padding: 60px 50px;
+            background: white;
+            text-align: center;
+        }
+        
+        #statistics h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgb(19, 173, 239), #667eea);
+            padding: 30px;
+            border-radius: 12px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+        }
+        /* FOOTER */
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: black;
+            color: white;
+            font-size: 14px;
+        }
+        /* RESPONSIVE */
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 5px;
+                margin-top: 10px;
+            }
+            .banner-overlay h1 {
+                font-size: 32px;
+            }
+            #history {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+            #history img {
+                width: 100%;
+                max-width: 320px;
+            }
+            #visionMission {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+            #visionMission>div {
+                width: 100%;
+            }
+            #team-wrapper {
+                flex-direction: column;
+            }
+            .member {
+                flex-direction: column;
+                text-align: center;
+            }
+            .member img {
+                margin: 0 auto 20px auto;
+            }
+            #agencyLogo {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-section">
+            <img src="images/logo.jpg" alt="Agency Logo">
+            <div>
+                <h2>Elite Football Agency</h2>
+                <p>Sierra Leone</p>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="players.html">Players</a></li>
+                <li><a href="matches.html">Matches</a></li>
+                <li><a class="active" href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECTION 1: BANNER -->
+    <div id="banner">
+        <img src="images/banner2.jpg" alt="Elite Football Agency Banner">
+        <div class="banner-overlay">
+            <h1>About Us</h1>
+            <p>Building Sierra Leone's Football Future</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2: ABOUT -->
+    <section id="about">
+        <h2>Connecting Sierra Leone's best football talent with the world</h2>
+        <div id="about-content">
+            <p>We represent, develop and showcase players — professional guidance, international exposure, and career management tailored to talent.</p>
+
+            <button class="learnMoreBtn" onclick="showText()">Learn More</button>
+
+            <p id="hiddenText">
+                Our agency is committed to building the future of Sierra Leonean football by scouting, nurturing, and promoting young talents with potential to rise on the international stage. We work closely with clubs, coaches, and federations to create pathways for
+                players that go beyond local expectations, opening doors to opportunities across Africa, Europe, Asia and beyond. Our goal is not only to elevate individual players but also to position Sierra Leone as a respected contributor to the global
+                football talent pipeline. With structured development programs, mental and physical performance support, and transparent career management, we ensure our athletes receive the best representation and the strongest foundation to succeed.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: HISTORY / FOUNDER -->
+    <section id="history">
+        <img src="images/fund2.jpg" alt="Founder of Elite Football Agency">
+        <div class="history-content">
+            <h2>Our Journey</h2>
+            <p>
+                Founded in 2020, Elite Football Agency Sierra Leone began as a small initiative to support local players seeking professional advancement. Over the years, the agency has grown into a recognized institution in talent development and international placement.
+                From our first player signing in 2021 to multiple overseas trials by 2024, our journey reflects our commitment to excellence, integrity, and opportunity creation.
+            </p>
+        </div>
+    </section>
+
+    <!-- STATISTICS SECTION -->
+    <section id="statistics">
+        <h2>Our Impact in Numbers</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Players Represented</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15</div>
+                <div class="stat-label">International Placements</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Professional Trials</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: VISION + MISSION -->
+    <section id="visionMission">
+        <div>
+            <h3>🎯 Vision</h3>
+            <p>To become the leading football management and talent-development agency in West Africa, creating pathways for African talent to reach the global stage.</p>
+        </div>
+        <div>
+            <h3>🚀 Mission</h3>
+            <p>To empower Sierra Leonean footballers through mentorship, exposure, professional contracts, and strategic career guidance that transforms dreams into reality.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 5 — MEET THE TEAM -->
+    <div id="team-section-title">Meet the Team</div>
+
+    <div id="team-wrapper">
+        <section id="team">
+            <div class="member">
+                <img src="images/team eb.jpg" alt="John Doe - Head Scout">
+                <div class="memberText">
+                    <b>John Doe</b>
+                    <div class="role">Head Scout</div>
+                    <div class="details">
+                        <strong>Professional Status:</strong> Licensed FIFA scouting consultant<br>
+                        <strong>Specialty:</strong> Youth player evaluation and talent identification
+                    </div>
+                </div>
+            </div>
+
+            <div class="member">
+                <img src="images/TEAM 001.jpg" alt="David Collier - Player Relations & Operations">
+                <div class="memberText">
+                    <b>David Collier</b>
+                    <div class="role">Player Relations & Operations</div>
+                    <div class="details">
+                        <strong>Professional Status:</strong> Global player management & transfer negotiation<br>
+                        <strong>Specialty:</strong> International talent development and contract negotiations
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT SIDE = LOGO -->
+        <img id="agencyLogo" src="images/logo.jpg" alt="Agency Logo">
+    </div>
+
+    <footer>
+        © 2025 Elite Football Agency Sierra Leone — All Rights Reserved
+    </footer>
+
+    <script>
+        function showText() {
+            const hiddenText = document.getElementById("hiddenText");
+            const button = document.querySelector(".learnMoreBtn");
+
+            if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
+                hiddenText.style.display = "block";
+                button.textContent = "Show Less";
+            } else {
+                hiddenText.style.display = "none";
+                button.textContent = "Learn More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
